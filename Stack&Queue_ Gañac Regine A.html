@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Stack & Queue</title>
+	<style>
+		body{
+			font-family: Sans-serif;
+		}
+	
+		.container{
+			background-color: blanchedalmond;
+			display: flex;
+			position: relative;
+			justify-content: space-around;
+			align-items: center;
+			text-align: center;
+		
+			padding: 1rem;
+			margin: 3rem;
+			border: 1px solid black;
+		}
+		.element1, .element2{
+			width: 47%;
+		}
+
+		.placeholder{
+			height: 300px;
+			width: 100%;
+			background: grey;
+		}
+		.vertical{
+			height: 100%;
+			position: absolute;
+			border-left: 2px solid black;
+
+		}
+		ul{
+			margin: 0;
+		}
+		ul li{
+			list-style: none;
+		}
+		#queueList{
+			text-align: left;
+		}
+		#stackList{
+			text-align: left;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+	
+		<div class="element1">
+			<h1>Stack</h1>
+			
+			<small>Stack is a container of objects that are inserted and removed according to the last-in first-out (LIFO) principle.</small>
+	<br><br>
+			<input type="text" name="forStack" id="Stack">
+			<button onclick="addStack()">Add</button><button onclick="popStack()">Delete</button>
+			<ol id="stackList"></ol>
+			
+			
+		</div>
+		
+		<div class="vertical"></div>
+		
+		<div class="element2">
+			<h1>Queue</h1>
+			
+			<small>Queue is a container of objects (a linear collection) that are inserted and removed according to the first-in first-out (FIFO) principle.</small>
+		<br><br>
+			<input type="text" name="forQueue" id="Queue">
+			<button onclick="addQueue()">Add</button><button onclick="shiftQueue()">Delete</button>
+			<ol id="queueList"></ol>
+			
+		</div>
+	</div>
+
+<script>
+
+	const Stack = [];
+	const Queue = [];
+
+
+	function addStack(){
+		let a = document.getElementById('Stack').value;
+		if(a==""){
+			alert("FIELD EMPTY, PLEASE ENTER ANYWORDS!!. ");
+		}
+		else{
+			Stack.push(a);
+		}
+		
+		document.getElementById('Stack').value = "";
+		document.getElementById('stackList').innerHTML = Stack;
+
+		var result = "";
+		Stack.forEach(function (item) {
+    	result += "<li>" + item;
+  		});
+  
+  		document.getElementById("stackList").innerHTML = result;
+	}
+
+	function popStack(){
+		Stack.pop();
+		var result = "";
+		Stack.forEach(function (item) {
+    	result += "<li>" + item;
+  		});
+  
+  		document.getElementById("stackList").innerHTML = result;
+
+	}
+
+
+	function addQueue(){
+		let a = document.getElementById('Queue').value;
+		if(a==""){
+			alert("FIELD EMPTY, PLEASE ENTER ANYWORDS!!.");
+		}
+		else{
+			Queue.push(a);
+		}
+		
+		document.getElementById('Queue').value = "";
+		
+		var result = "";
+		Queue.forEach(function (item) {
+    	result += "<li>" + item;
+  		});
+  
+  		document.getElementById("queueList").innerHTML = result;
+
+	}
+
+	function shiftQueue(){
+		Queue.shift();
+		var result = "";
+		Queue.forEach(function (item) {
+    	result += "<li>" + item;
+  		});
+  
+  		document.getElementById("queueList").innerHTML = result;
+
+	}	
+</script>
+<h2>Gañac Regine A..</h2>
+	<h3>BSIT-4A</h3>
+</body>
+</html>
